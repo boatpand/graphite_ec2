@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: Production
+    depends_on:
+      - graphite
+
+  graphite:
+    image: graphiteapp/graphite-statsd
+    ports:
+      - "80:80"        
+      - "2003-2004:2003-2004" 
+      - "2023-2024:2023-2024"  
+      - "8125:8125/udp" 
+    volumes:
+      - /var/lib/graphite/storage/whisper
