@@ -60,7 +60,7 @@ minikube addons enable ingress
 # verify installation
 kubectl get pods -n ingress-nginx
 ```
-![Alt text](https://raw.githubusercontent.com/boatpand/devops-test/master/image_evidence/ingress_controller.png?token=GHSAT0AAAAAACIMZ46BAADSHSP7BOFNPXGMZJCQQOA)
+![Alt text](https://raw.githubusercontent.com/boatpand/devops-test/master/image_evidence/ingress_controller.png?token=GHSAT0AAAAAACIMZ46B6WHXUS432SRFTZHAZJCQ64A)
 5. Apply ingress
 ```sh
 kubectl apply -f graphite-ingress.yaml
@@ -70,7 +70,7 @@ kubectl apply -f graphite-ingress.yaml
 kubectl apply -f lynxjs.yaml
 ```
 All resources
-![Alt text](https://raw.githubusercontent.com/boatpand/devops-test/master/image_evidence/all_resoureces.png?token=GHSAT0AAAAAACIMZ46ACD3Q2V73NG2X5XE6ZJCQO6A)
+![Alt text](https://raw.githubusercontent.com/boatpand/devops-test/master/image_evidence/all_resoureces.png?token=GHSAT0AAAAAACIMZ46B3FYFG2M7ELJRLKPWZJCQ7PA)
 7. Port forwarding for Access Graphite UI
 ```sh
 # store graphite pod name to variable
@@ -80,4 +80,4 @@ export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/nam
 kubectl port-forward $POD_NAME 8080:80
 ```
 ##### You can access graphite UI via http://127.0.0.1:8080/
-![Alt text](https://raw.githubusercontent.com/boatpand/devops-test/master/image_evidence/graphite_ui.png?token=GHSAT0AAAAAACIMZ46AUR2XAU4ACN7LVDM6ZJCQV7Q)
+![Alt text](https://raw.githubusercontent.com/boatpand/devops-test/master/image_evidence/graphite_ui.png?token=GHSAT0AAAAAACIMZ46ADOU7KLE6FDACRG6AZJCRACA)
