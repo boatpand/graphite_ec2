@@ -15,11 +15,11 @@ Actually I want to deploy with EKS but that I told above Free tier user of AWS d
 You can access graphite UI with my EC2 public IP: http://13.212.238.57
 
 ### IAM user info If you need
-Accout ID: 404936370167
-Username: user2
-Password: P@ssw0rd1234
-Access key: AKIAV4SAWU733VFWDH6V
-Secret access key : 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
+- Accout ID: 404936370167
+- Username: user2
+- Password: P@ssw0rd1234
+- Access key: AKIAV4SAWU733VFWDH6V
+- Secret access key : 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
 
 ### SSH Client for connect to instance
 Instance ID: i-0b3255a0f7769c8a8 (devops)
