@@ -1,7 +1,7 @@
 You can access graphite UI with my EC2 public IP: http://13.212.238.57
 
 IAM user info If you need
-    Accout ID: 404936370167
+    Account ID: 404936370167
     Username: user2
     Password: P@ssw0rd1234
     Access key: AKIAV4SAWU733VFWDH6V
