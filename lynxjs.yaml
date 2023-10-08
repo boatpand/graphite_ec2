@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lynxjs-app
+spec:
+  replicas: 2 # Adjust the number of replicas as needed
+  selector:
+    matchLabels:
+      app: lynxjs-app
+  template:
+    metadata:
+      labels:
+        app: lynxjs-app
+    spec:
+      containers:
+        - name: lynxjs-app-container
+          image: boatpand/lynxjs2statd:latest
+          ports:
+            - containerPort: 8125
