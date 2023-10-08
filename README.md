@@ -1,14 +1,10 @@
 ### 1. Add a Dockerfile to containerize the app, with support for multiple environments (DEV, UAT & Production)
-##
-##### I create Dockerfile that support multiple environments (DEV, UAT & Production) and use docker-compose.yml for create container that contains both of js container and graphite container
-##
-###### choose environment by edit value from key target: in docker-compose.yml
-##
+I create Dockerfile that support multiple environments (DEV, UAT & Production) and use docker-compose.yml for create container that contains both of js container and graphite container
+choose environment by edit value from key target: in docker-compose.yml
 ```sh
 docker-compose build
 docker-compose up
 ```
-##
 ### 2. Design the cloud infrastructure diagram (prefer AWS) with all the resources that are required for the application(Node app, statsd & the backend. Applicants can use any backends for statsd eg: Graphite). Use ECS or EKS as application platform.
 ##
 ##### I draw the diagram of EKS via draw.io, internet traffic -> ingress -> EKS I decided to deploy graphite by using helm chart because It has already installed all neccessary resources in one command. I exported diargram as pdf and push to this git repo.
