@@ -1,42 +1,15 @@
-### 1. Add a Dockerfile to containerize the app, with support for multiple environments (DEV, UAT & Production)
-I create Dockerfile that support multiple environments (DEV, UAT & Production) and use docker-compose.yml for create container that contains both of js container and graphite container
-choose environment by edit value from key target: in docker-compose.yml
+### 1. Add a Dockerfile and docker-compose file and deploy on EC2
+I have index.js that simulates a simple app that runs infinitely & sends metrics to a statsd server and I use graphite for statd server
+I create Dockerfile and use docker-compose.yml for create container that contains both of js container and graphite container
 ```sh
 docker-compose build
 docker-compose up
 ```
-### 2. Design the cloud infrastructure diagram (prefer AWS) with all the resources that are required for the application(Node app, statsd & the backend. Applicants can use any backends for statsd eg: Graphite). Use ECS or EKS as application platform.
-I draw the diagram of EKS via draw.io, internet traffic -> ingress -> EKS I decided to deploy graphite by using helm chart because It has already installed all neccessary resources in one command. I exported diargram as pdf and push to this git repo.
-### 3. Utilize Terraform to establish infrastructure that adheres to industry-standard security and high availability (HA) practices.
-I learn terraform by myself so I don't expertise in terraform much. It's first time for me to use terraform for create eks cluster. I test it with terraform plan command but don't use terraform apply because I don't have paid plan AWS user (Free tier user of AWS doesn't include EKS).
-### 4. (Optional) Deploy on the cloud computing platforms
-Actually I want to deploy with EKS but that I told above Free tier user of AWS doesn't include EKS and I'm not farmilar with ECS so I deploy with docker-compose file from exercise 1 on EC2
+I deploy docker-compose file on EC2
+You can access graphite UI with my EC2 public IP: http://54.254.234.91
 
-You can access graphite UI with my EC2 public IP: http://13.212.238.57
-
-### IAM user info If you need
-- Accout ID: 404936370167
-- Username: user2
-- Password: P@ssw0rd1234
-- Access key: AKIAV4SAWU733VFWDH6V
-- Secret access key : VZ9J0s8lwtbr7rzlbEntRmVTqwxR/41TjMl3MQzb
-
-### SSH Client for connect to instance
-Instance ID: i-0b3255a0f7769c8a8 (devops)
-- Open an SSH client.
-- Locate your private key file. The key used to launch this instance is devop-test.pem
-- Run this command, if necessary, to ensure your key is not publicly viewable.
-- chmod 400 devop-test.pem
-- Connect to your instance using its Public DNS:
-```sh
-ec2-13-212-238-57.ap-southeast-1.compute.amazonaws.com
-```
-Example:
-```sh
-ssh -i "devop-test.pem" ubuntu@ec2-13-212-238-57.ap-southeast-1.compute.amazonaws.com
-```
-### [Additional]
-I deployed js and graphite followed by exercise 2 diagram using my .yaml file that I pushed to this git repo in my local environment minikube instead of that I can't deploy on EKS due to free tier user.
+### 2. Deploy graphite helm chart and index.js using .yaml file on Minikube
+I deployed js and graphite diagram using my .yaml file that I pushed to this git repo in my local environment minikube instead of that I can't deploy on EKS due to free tier user.
 ##### Step
 0. Install helm (If you haven't already.)
 https://helm.sh/docs/intro/install/
