@@ -9,7 +9,7 @@ I deploy docker-compose file on EC2
 You can access graphite UI with my EC2 public IP: http://54.254.234.91
 
 ### 2. Deploy graphite helm chart and index.js using .yaml file on Minikube
-I deployed js and graphite diagram using my .yaml file that I pushed to this git repo in my local environment minikube instead of that I can't deploy on EKS due to free tier user.
+I deployed js and graphite using my .yaml file that I pushed to this git repo in my local environment minikube instead of that I can't deploy on EKS due to free tier user.
 ##### Step
 0. Install helm (If you haven't already.)
 https://helm.sh/docs/intro/install/
@@ -33,7 +33,7 @@ minikube addons enable ingress
 # verify installation
 kubectl get pods -n ingress-nginx
 ```
-![Alt text](https://github.com/boatpand/devops-test/blob/master/image_evidence/ingress_controller.png?raw=true)
+![Alt text](https://github.com/boatpand/statd_graphite/blob/master/image_evidence/ingress_controller.png?raw=true)
 5. Apply ingress
 ```sh
 kubectl apply -f graphite-ingress.yaml
@@ -43,7 +43,7 @@ kubectl apply -f graphite-ingress.yaml
 kubectl apply -f lynxjs.yaml
 ```
 All resources
-![Alt text](https://github.com/boatpand/devops-test/blob/master/image_evidence/all_resources.png?raw=true)
+![Alt text](https://github.com/boatpand/statd_graphite/blob/master/image_evidence/all_resources.png?raw=true)
 7. Port forwarding for Access Graphite UI
 ```sh
 # store graphite pod name to variable
@@ -53,4 +53,4 @@ export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/nam
 kubectl port-forward $POD_NAME 8080:80
 ```
 ##### You can access graphite UI via http://127.0.0.1:8080/
-![Alt text](https://github.com/boatpand/devops-test/blob/master/image_evidence/graphite_ui.png?raw=true)
+![Alt text](https://github.com/boatpand/statd_graphite/blob/master/image_evidence/graphite_ui.png?raw=true)
